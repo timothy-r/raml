@@ -1,5 +1,7 @@
 # raml
-Raml and api specification experiments
+Various raml and api specification experiments.
+
+The books.html documentation was generated from the books.raml spec file.
 
 ## Generate the html docs
 Use the npm tool raml2html
