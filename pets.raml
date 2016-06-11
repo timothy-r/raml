@@ -12,8 +12,11 @@ schemas:
 mediaType: application/json
 
 /pets:
-  get:
-    body:
-      schema: pets
-  post:
-    body:
+    get:
+        responses:
+            200:
+                body:
+                    schema: pets
+    post:
+        responses:
+            200:

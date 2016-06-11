@@ -16,4 +16,7 @@ Use the aws-api-importer tool https://github.com/awslabs/aws-apigateway-importer
 * Generate the API with *./aws-api-import.sh --create books.raml*
 
 ## Generate mock integrations using API gateway extensions
-This should be possible for raml specs as well as swagger ones
+Use aws-api-importer and the aws cli tool
+
+* Generate an API with a mock integration *./aws-api-import.sh --create pets.raml --raml-config pets.json*
+* Deploy the new API to dev stage *aws apigateway create-deployment --rest-api-id API_ID --stage-name dev*

@@ -6,6 +6,8 @@
       },
       "integration" : {
         "type" : "MOCK",
+        "uri": "https://mock.com/",
+        "passthroughBehavior": "when_no_templates",
         "requestTemplates" : {
           "application/json" : "{\"statusCode\": 200}"
         },
@@ -18,6 +20,20 @@
             },
             "statusCode": "200"
           }
+        },
+        "responses" : {
+          "200" : {
+            "statusCode" : "200",
+            "responseTemplates": {
+              "application/json": "{\"name\": \"rover\"}"
+            }
+          },
+          "default" : {
+            "statusCode" : "200",
+            "responseTemplates": {
+              "application/json": "{\"name\": \"rover\"}"
+            }
+          }
         }
       }
     },
@@ -27,6 +43,8 @@
       },
       "integration" : {
         "type" : "MOCK",
+        "uri": "https://mock.com/",
+        "passthroughBehavior": "when_no_templates",
         "requestTemplates" : {
           "application/json" : "{\"statusCode\": 200}"
         },
@@ -38,6 +56,20 @@
               "application/json": "{\"status\": \"success\"}"
             },
             "statusCode": "200"
+          }
+        },
+        "responses" : {
+          "200" : {
+            "statusCode" : "200",
+            "responseTemplates": {
+              "application/json": "{\"status\": \"success\"}"
+            }
+          },
+          "default" : {
+            "statusCode" : "200",
+            "responseTemplates": {
+              "application/json": "{\"status\": \"success\"}"
+            }
           }
         }
       }
