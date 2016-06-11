@@ -4,8 +4,8 @@ Various raml and api specification experiments.
 The books.html documentation was generated from the books.raml spec file.
 
 ## Generate the html docs
-Use the npm tool raml2html
 
+* Use the npm tool raml2html
 * Install with
 
 ```
@@ -19,9 +19,9 @@ raml2html books.raml > books.html
 ```
 
 ## Generate an AWS API Gateway
-Use the aws-api-importer tool https://github.com/awslabs/aws-apigateway-importer
 
-* Install the importer tool
+* Use the aws-api-importer tool https://github.com/awslabs/aws-apigateway-importer
+* Install the importer tool following its instructions
 * Generate the API with
 
 ```
@@ -29,12 +29,11 @@ Use the aws-api-importer tool https://github.com/awslabs/aws-apigateway-importer
 ```
 
 ## Generate mock integrations using API gateway extensions
-Use aws-api-importer and the aws cli tool
-
+* Use aws-api-importer and the aws cli tool
 * Generate an API with a mock integration
 
 ```
-    ./aws-api-import.sh --create pets.raml --raml-config pets.json
+./aws-api-import.sh --create pets.raml --raml-config pets.json
 ```
     
 * Deploy the new API to **dev** stage
