@@ -34,6 +34,17 @@ raml2html books.raml > books.html
 
 ```
 ./aws-api-import.sh --create pets.raml --raml-config pets.json
+2016-06-11 18:27:20,360 INFO - Using API Gateway endpoint https://apigateway.eu-west-1.amazonaws.com
+2016-06-11 18:27:22,438 INFO - Attempting to create API from RAML definition. RAML file: pets.raml
+2016-06-11 18:27:22,659 INFO - Creating API with name Pets API
+2016-06-11 18:27:22,823 INFO - Created API jc7rbxsdvi
+2016-06-11 18:27:22,969 INFO - Removing default model Error
+2016-06-11 18:27:23,023 INFO - Removing default model Empty
+2016-06-11 18:27:23,199 INFO - Creating resource 'pets' on pmglmjef0b
+2016-06-11 18:27:23,302 INFO - Creating method for api id jc7rbxsdvi and resource id z21q6c with method GET
+2016-06-11 18:27:23,369 INFO - Creating integration with type MOCK
+2016-06-11 18:27:23,636 INFO - Creating method for api id jc7rbxsdvi and resource id z21q6c with method POST
+2016-06-11 18:27:23,698 INFO - Creating integration with type MOCK
 ```
     
 * Deploy the new API to **dev** stage
