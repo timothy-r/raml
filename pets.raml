@@ -1,0 +1,19 @@
+#%RAML 0.8
+
+title: Pets API
+
+baseUri: http://my-pets.net/
+
+schemas:
+  - pets: >
+      {
+        "type": "string"
+      }
+mediaType: application/json
+
+/pets:
+  get:
+    body:
+      schema: pets
+  post:
+    body:

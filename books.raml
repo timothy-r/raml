@@ -17,18 +17,49 @@ baseUri: https://books.com/
             200:
                 body:
                     application/json:
+                        schema: |
+                            {
+                            "type" : "array",
+                            "items": {
+                                "properties" : {
+                                    "name" : {
+                                        "type" : "string"
+                                    },
+                                    "author" : {
+                                        "type" : "string"
+                                    },
+                                    "isbn" : {
+                                        "type" : "string"
+                                    },
+                                    "tags" : {
+                                        "type" : "array"
+                                    },
+                                    "publications" : {
+                                        "type" : "array"
+                                    }
+                                }
+                                }
+                            }
                         example: |
                             [{
                             "name" : "Blue book",
                             "author": "Wotsit",
-                            "publicationYear" : "1970",
-                            "rating" : "10",
-                            "isbn": "abcde345",
-                            "tags" : ["retro", "sci-fi"]
+                            "isbn": "0-8044-2957-X",
+                            "tags" :
+                                [
+                                    "sci-fi"
+                                ],
+                            "publications" :
+                                [
+                                    {
+                                        "date" : "1970-01-01",
+                                        "publisher" : "Penguin"
+                                    }
+                                ]
                             }]
     /{name}:
         put:
-            description: Add a book
+            description: Add a book using name identifier
             responses:
                 201:
                 400:
@@ -39,7 +70,7 @@ baseUri: https://books.com/
                                     "message" : "Invalid input"
                                 }
         get:
-            description: Get a book resource
+            description: Get a book resource by name
             responses:
                 200:
                     body:
@@ -48,8 +79,6 @@ baseUri: https://books.com/
                                 {
                                 "name" : "Blue book",
                                 "author": "Wotsit",
-                                "publicationYear" : "1970",
-                                "rating" : "10",
                                 "isbn": "abcde345"
                                 }
                 404:
@@ -60,7 +89,7 @@ baseUri: https://books.com/
                                 "message" : "no book found"
                                 }
         delete:
-            description: Remove a book
+            description: Remove a book by name
             responses:
                 200:
                 404:
