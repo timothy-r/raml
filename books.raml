@@ -1,0 +1,115 @@
+#%RAML 0.8
+---
+title: books api
+version: v2
+baseUri: https://books.com/
+
+/books:
+    get:
+        description: Filter books on parameters
+        queryParameters:
+            author:
+            publicationYear:
+            rating:
+            isbn:
+            name:
+        responses:
+            200:
+                body:
+                    application/json:
+                        example: |
+                            [{
+                            "name" : "Blue book",
+                            "author": "Wotsit",
+                            "publicationYear" : "1970",
+                            "rating" : "10",
+                            "isbn": "abcde345",
+                            "tags" : ["retro", "sci-fi"]
+                            }]
+    /{name}:
+        put:
+            description: Add a book
+            responses:
+                201:
+                400:
+                    body:
+                        application/json:
+                            example: |
+                                {
+                                    "message" : "Invalid input"
+                                }
+        get:
+            description: Get a book resource
+            responses:
+                200:
+                    body:
+                        application/json:
+                            example: |
+                                {
+                                "name" : "Blue book",
+                                "author": "Wotsit",
+                                "publicationYear" : "1970",
+                                "rating" : "10",
+                                "isbn": "abcde345"
+                                }
+                404:
+                    body:
+                        application/json:
+                            example: |
+                                {
+                                "message" : "no book found"
+                                }
+        delete:
+            description: Remove a book
+            responses:
+                200:
+                404:
+                    body:
+                        application/json:
+                            example: |
+                                {
+                                "message" : "no book found"
+                                }
+        /tags:
+            get:
+                description: Get the tags for a book
+                responses:
+                    200:
+                        body:
+                            application/json:
+                                example: |
+                                    {
+                                        "gothic",
+                                        "romance"
+                                    }
+                    404:
+            post:
+                description: Add a tag to a book
+                responses:
+                    200:
+                    404:
+        /publications:
+            get:
+                description: Get the published versions of a book
+                responses:
+                    200:
+                        body:
+                            application/json:
+                                example: |
+                                    [
+                                    {
+                                        "date": "1970-01-01",
+                                        "publisher": "Penguin"
+                                    },
+                                    {
+                                        "date": "1984-11-16",
+                                        "publisher": "Macmillan"
+                                    }
+                                    ]
+                    404:
+            post:
+                description: Add a publication of a book
+                responses:
+                    200:
+                    400:
+                    404:
