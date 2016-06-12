@@ -16,7 +16,7 @@
         "integrationResponses": {
           "200": {
             "responseTemplates": {
-              "application/json": "{\"name\": \"rover\"}"
+              "application/json": "[{\"name\": \"rover\", \"age\": \"8\", \"species\": \"dog\"}]"
             },
             "statusCode": "200"
           }
@@ -25,13 +25,13 @@
           "200" : {
             "statusCode" : "200",
             "responseTemplates": {
-              "application/json": "{\"name\": \"rover\"}"
+              "application/json": "[{\"name\": \"rover\", \"age\": \"8\", \"species\": \"dog\"}]"
             }
           },
           "default" : {
             "statusCode" : "200",
             "responseTemplates": {
-              "application/json": "{\"name\": \"rover\"}"
+              "application/json": "[{\"name\": \"rover\", \"age\": \"8\", \"species\": \"dog\"}]"
             }
           }
         }

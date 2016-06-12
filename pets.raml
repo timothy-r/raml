@@ -7,12 +7,51 @@ baseUri: http://my-pets.net/
 schemas:
   - pets: >
       {
-        "type": "string"
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "title": "Pets",
+        "type" : "array",
+            "items" : {
+                "type": "object",
+                "properties" : {
+                    "name" : {
+                        "type" : "string"
+                    },
+                    "species" : {
+                        "type" : "string"
+                    },
+                    "age" : {
+                        "type" : "integer"
+                    }
+                }
+            }
       }
+
+traits:
+  - searchable:
+      queryParameters:
+        name:
+          type: string
+          example: "rover"
+        age:
+          type: integer
+          example: 5
+        species:
+          type: string
+          example: "cat"
+  - pageable:
+      queryParameters:
+        page:
+          description: Specifies the page
+          type: integer
+          required: false
+          example: 2
+          default: 0
+
 mediaType: application/json
 
 /pets:
     get:
+        is: [ searchable: {}, pageable ]
         responses:
             200:
                 body:
