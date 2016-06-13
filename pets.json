@@ -2,7 +2,13 @@
   "/pets": {
     "get": {
       "auth" : {
-        "type" : "none"
+        "type": "none"
+      },
+      "security" : {
+        "type" : "apiKey",
+        "name" : "x-api-key",
+        "in" : "header",
+        "required" : true
       },
       "integration" : {
         "type" : "MOCK",
